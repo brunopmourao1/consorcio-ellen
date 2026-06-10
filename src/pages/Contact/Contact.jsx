@@ -111,7 +111,7 @@ const Contact = () => {
               <div className="narrative-decorative-image">
                 <img
                   src={officeImg}
-                  alt="Executive office desk"
+                  alt="Mesa de escritório executivo"
                   className="editorial-image"
                 />
                 <div className="image-vignette"></div>

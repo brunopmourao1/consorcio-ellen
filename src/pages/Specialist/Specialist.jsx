@@ -28,7 +28,7 @@ const Specialist = () => {
                   <div className="portrait-container">
                     <img
                       src={ellenImg}
-                      alt="Ellen Stevão Portrait"
+                      alt="Retrato de Ellen Stevão"
                       className="portrait-image"
                     />
                   </div>
@@ -119,17 +119,17 @@ const Specialist = () => {
               <div className="manifesto-grid">
                 <div className="manifesto-item">
                   <div className="accent-line"></div>
-                  <h4>Asset Management</h4>
+                  <h4>Gestão de Ativos</h4>
                   <p>Gestão focada na diversificação inteligente. Não olhamos apenas para o rendimento, mas para a liquidez e para o custo de oportunidade.</p>
                 </div>
                 <div className="manifesto-item">
                   <div className="accent-line"></div>
-                  <h4>Equity Building</h4>
+                  <h4>Construção de Patrimônio</h4>
                   <p>Utilizamos instrumentos de crédito estruturado para potencializar a aquisição de ativos sem descapitalizar o cliente.</p>
                 </div>
                 <div className="manifesto-item">
                   <div className="accent-line"></div>
-                  <h4>Succession Planning</h4>
+                  <h4>Planejamento Sucessório</h4>
                   <p>Proteção sucessória eficiente, garantindo que a transição de riqueza seja livre de entraves burocráticos.</p>
                 </div>
               </div>

@@ -119,13 +119,13 @@ const Solutions = () => {
                       </p>
                       <div className="feature-badges">
                         <div className="badge">
-                          <span className="badge-value">Imported</span>
-                          <span className="badge-label">Automobiles</span>
+                          <span className="badge-value">Importados</span>
+                          <span className="badge-label">Automóveis</span>
                         </div>
                         <div className="badge-divider"></div>
                         <div className="badge">
-                          <span className="badge-value">Nautical</span>
-                          <span className="badge-label">Off-road</span>
+                          <span className="badge-value">Náuticos</span>
+                          <span className="badge-label">Off-Road</span>
                         </div>
                       </div>
                     </div>
@@ -185,7 +185,7 @@ const Solutions = () => {
           <div className="container">
             <FadeIn delay={200}>
               <div className="narrative-box">
-                <h2 className="narrative-headline">A precisão de um <span className="serif-italic">Private Bank</span>, a eficiência do consórcio.</h2>
+                <h2 className="narrative-headline">A precisão de um <span className="serif-italic">Banco Privado</span>, a eficiência do consórcio.</h2>
                 <p className="narrative-text">
                   Nossa abordagem remove a subjetividade e foca em métricas reais de retorno sobre patrimônio. Agende uma reunião técnica para entender como estas ferramentas se aplicam ao seu balanço.
                 </p>

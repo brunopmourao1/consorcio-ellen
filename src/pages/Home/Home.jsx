@@ -183,7 +183,7 @@ const Home = () => {
 
               <article className="editorial-card-item">
                 <Link to="/blog/3" className="card-media">
-                  <img src={blogImg3} alt="Succession" className="editorial-img" />
+                  <img src={blogImg3} alt="Sucessão" className="editorial-img" />
                 </Link>
                 <span className="item-tag-v5">Patrimônio</span>
                 <Link to="/blog/3" className="item-title-link">
