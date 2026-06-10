@@ -48,7 +48,7 @@ const Specialist = () => {
                   <span className="ticker-label">Graduação</span>
                 </div>
                 <div className="ticker-item">
-                  <span className="ticker-value">ABAC (PC10)</span>
+                  <span className="ticker-value">ABAC | ANBIMA </span>
                   <span className="ticker-label">Certificação</span>
                 </div>
                 <div className="ticker-item">

@@ -60,9 +60,12 @@ const Solutions = () => {
                       Maximização de recursos para expansão imobiliária planejada, transformando passivos em ativos geradores de renda.
                     </p>
                     <ul className="item-features">
-                      <li>Urban & Rural Acquisition</li>
-                      <li>Debt Replacement Logic</li>
-                      <li>Rental Income Engineering</li>
+                      <li>Urbano & Rural</li>
+                      <li>Residencial e Comercial</li>
+                      <li>Na planta ou pronto</li>
+                      <li>Reforma e Construção</li>
+                      <li>Quitação de financiamento</li>
+                      <li>Utilização de FGTS</li>
                     </ul>
                   </div>
                   <div className="item-footer-image">
@@ -88,9 +91,10 @@ const Solutions = () => {
                       Soluções para o core business. Renovação de frota e mecanização com custo financeiro reduzido e fluxo de caixa preservado.
                     </p>
                     <ul className="item-features-check">
-                      <li><span className="material-symbols-outlined">check_circle</span> Strategic Fleet Renewal</li>
-                      <li><span className="material-symbols-outlined">check_circle</span> Industrial Machines Procurement</li>
-                      <li><span className="material-symbols-outlined">check_circle</span> Agribusiness Expansion</li>
+                      <li><span className="material-symbols-outlined">check_circle</span> Automóveis (leve e pesados)</li>
+                      <li><span className="material-symbols-outlined">check_circle</span> Náuticos e Aeronáuticos</li>
+                      <li><span className="material-symbols-outlined">check_circle</span> Máquinas e Equipamentos</li>
+                      <li><span className="material-symbols-outlined">check_circle</span> Off-Road</li>
                     </ul>
                   </div>
                   <div className="item-footer-dual-image">
@@ -109,7 +113,7 @@ const Solutions = () => {
                         <span className="material-symbols-outlined icon">directions_car</span>
                         <span className="item-tag">Estratégia 03</span>
                       </div>
-                      <h2 className="item-title">Veículos Premium e Lifestyle</h2>
+                      <h2 className="item-title">Automóveis | Troca de chave</h2>
                       <p className="item-desc">
                         Acesso ao mercado de luxo através de planejamento inteligente. Substituição programada de ativos com preservação de liquidez.
                       </p>
