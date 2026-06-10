@@ -145,10 +145,13 @@ const Solutions = () => {
                         <span className="material-symbols-outlined icon">flight</span>
                         <span className="item-tag">Estratégia 04</span>
                       </div>
-                      <h2 className="item-title-large">Estruturação de Ativos e Soluções Especiais</h2>
-                      <p className="item-desc-large">
-                        Projetos de alta complexidade que exigem modelagem financeira sob medida. Da aviação executiva ao compartilhamento inteligente de ativos.
-                      </p>
+                      <h2 className="item-title-large">Serviços</h2>
+                      <ul className="item-features">
+                        <li>Procedimento cirúrgicos e estéticos</li>
+                        <li>Festas e Eventos</li>
+                        <li>Consultoria e Acessoria</li>
+                        <li>Eletrodomésticos e Eletrônicos</li>
+                      </ul>
                       <Link to="/contato" className="interactive-link">
                         Solicitar Análise Especial
                         <span className="material-symbols-outlined">arrow_right_alt</span>
@@ -157,19 +160,21 @@ const Solutions = () => {
                     <div className="options-grid">
                       <div className="option-card">
                         <span className="option-title">Aeronaves</span>
-                        <span className="option-desc">Jatos executivos e turboélices.</span>
+                        <span className="option-desc">Cotas compartilhadas (plano horas de vôos).</span>
+                        <span className="option-desc">Modelos de Aeronaves: Executivas, Turboélices, Agrícolas e Experimental.</span>
                       </div>
                       <div className="option-card">
                         <span className="option-title">Industrial</span>
-                        <span className="option-desc">Equipamentos de alto valor.</span>
+                        <span className="option-desc"> Equipamentos - Energia Solar, Motores.</span>
+                        <span className="option-desc">Máquinas - Agrícola, Industrial. </span>
                       </div>
                       <div className="option-card">
-                        <span className="option-title">Fractional</span>
-                        <span className="option-desc">Propriedade compartilhada.</span>
+                        <span className="option-title">Náuticos</span>
+                        <span className="option-desc">Jetski, Lanchas e Yachts.</span>
                       </div>
                       <div className="option-card dark-accent">
                         <span className="option-title highlight">Consultoria</span>
-                        <span className="option-desc">Grupos exclusivos.</span>
+                        <span className="option-desc">Planejamento Financeiro.</span>
                       </div>
                     </div>
                   </div>
