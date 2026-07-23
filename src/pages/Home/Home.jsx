@@ -43,7 +43,7 @@ const Home = () => {
 
         {/* 1. HERO SECTION: Reconstrução Limpa Lado-a-Lado */}
         <section className="hero-section-clean">
-          <div className="hero-container-standard">
+          <div className="container-7xl">
             <div className="hero-grid-main">
 
               <div className="hero-text-block">
@@ -160,35 +160,35 @@ const Home = () => {
 
             <div className="home-editorial-grid">
               <article className="editorial-card-item">
-                <Link to="/blog/1" className="card-media">
+                <div className="card-media">
                   <img src={blogImg1} alt="Selic" className="editorial-img" />
-                </Link>
+                </div>
                 <span className="item-tag-v5">Mercado</span>
-                <Link to="/blog/1" className="item-title-link">
+                <div className="item-title-link">
                   <h3>O impacto da Selic no custo de oportunidade do consórcio</h3>
-                </Link>
+                </div>
                 <p className="item-excerpt">Uma análise técnica sobre como os juros influenciam a decisão de investir através de grupos de consórcio...</p>
               </article>
 
               <article className="editorial-card-item">
-                <Link to="/blog/2" className="card-media">
+                <div className="card-media">
                   <img src={blogImg2} alt="Lances" className="editorial-img" />
-                </Link>
+                </div>
                 <span className="item-tag-v5">Estratégia</span>
-                <Link to="/blog/2" className="item-title-link">
+                <div className="item-title-link">
                   <h3>Lance Livre vs. Lance Fixo: Qual o melhor caminho?</h3>
-                </Link>
+                </div>
                 <p className="item-excerpt">Entenda a matemática por trás das modalidades de lance e como acelerar sua contemplação com segurança.</p>
               </article>
 
               <article className="editorial-card-item">
-                <Link to="/blog/3" className="card-media">
+                <div className="card-media">
                   <img src={blogImg3} alt="Sucessão" className="editorial-img" />
-                </Link>
+                </div>
                 <span className="item-tag-v5">Patrimônio</span>
-                <Link to="/blog/3" className="item-title-link">
+                <div className="item-title-link">
                   <h3>Consórcio como ferramenta de sucessão familiar</h3>
-                </Link>
+                </div>
                 <p className="item-excerpt">Descubra como estruturar a transferência de ativos de forma inteligente utilizando as cotas de consórcio imobiliário.</p>
               </article>
             </div>

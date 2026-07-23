@@ -196,7 +196,6 @@ const Solutions = () => {
                 </p>
                 <div className="narrative-actions">
                   <Link to="/contato" className="btn-primary">Agendar Reunião Estratégica</Link>
-                  <button className="btn-text-link">Baixar Prospecto de Soluções</button>
                 </div>
               </div>
             </FadeIn>

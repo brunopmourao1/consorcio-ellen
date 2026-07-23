@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
 import lanceImg from '../../assets/images/Lance.png';
 import blogImg1 from '../../assets/images/blog-1.png';
@@ -128,10 +127,6 @@ const Blog = () => {
                 </div>
                 <h3 className="article-title">{post.title}</h3>
                 <p className="article-excerpt">{post.excerpt}</p>
-                <Link to={`/blog/${post.id}`} className="article-link">
-                  Ler Artigo
-                  <span className="material-symbols-outlined">arrow_forward</span>
-                </Link>
               </article>
             </FadeIn>
           ))}

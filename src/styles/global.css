@@ -63,7 +63,6 @@ ul {
 @media (max-width: 480px) {
   .container,
   .container-7xl,
-  .hero-container-standard,
   .legal-container {
     padding-left: 20px;
     padding-right: 20px;
@@ -74,7 +73,6 @@ ul {
 @media (max-width: 320px) {
   .container,
   .container-7xl,
-  .hero-container-standard,
   .legal-container {
     padding-left: 16px;
     padding-right: 16px;

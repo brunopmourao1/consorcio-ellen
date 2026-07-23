@@ -1,7 +1,7 @@
 # Plano de Ação — Consórcio Ellen
 **Projeto:** `ellen_app` — React + Vite  
 **Referência no servidor MCP:** Projeto ID `14988207328583115709`  
-**Última atualização:** 2026-04-10  
+**Última atualização:** 2026-07-23  
 
 ---
 
@@ -9,12 +9,24 @@
 
 | Categoria | Total de itens | Concluídos | Pendentes |
 |---|---|---|---|
-| Bugs Críticos | 4 | 3 | 1 |
-| Bugs Funcionais | 4 | 3 | 1 |
-| Inconsistências de Design | 6 | 2 | 4 |
-| Responsividade | 10 | 8 | 2 |
-| Hospedagem & Contato | 2 | 1 | 1 |
-| **Total** | **26** | **17** | **9** |
+| Bugs Críticos | 4 | 4 | 0 |
+| Bugs Funcionais | 4 | 4 | 0 |
+| Inconsistências de Design | 6 | 5 | 1 |
+| Responsividade | 10 | 10 | 0 |
+| Hospedagem & Contato | 2 | 2 | 0 |
+| **Total** | **26** | **25** | **1** |
+
+**Resumo da atualização de 2026-07-23:**
+- Site já está publicado e no ar na Vercel (HC-01 concluído — confirmado pelo usuário; os commits de fix de case-sensitivity de imagens são evidência do pipeline de build Linux da Vercel).
+- BR-05 e BR-08, marcados como pendentes na última revisão do documento, na verdade já estavam implementados no código (mismatch entre doc e código — corrigido aqui).
+- BQ-04 resolvido: links "Ler Artigo" (Blog) e cards da seção "Pensamento Editorial" (Home) que apontavam para `/blog/:id` inexistente foram desativados (evitava 404). Decisão do usuário: opção simples, sem criar páginas de artigo por ora.
+- BF-03 resolvido: botão "Baixar Prospecto de Soluções" removido (não existe PDF ainda).
+- BD-03 resolvido: `.hero-container-standard` consolidado em `.container-7xl` (Home.jsx, Home.css, global.css).
+- BD-04 resolvido: `background-color: var(--color-background)` adicionado explicitamente a `.editorial-thought-preview`.
+- BD-06 resolvido: favicon substituído pelo padrão roxo do Stitch/Vite por um monograma "CE" em navy/dourado (`public/favicon.svg`).
+- **Novo item concluído fora do plano original:** otimização de imagens no build via `vite-plugin-image-optimizer` + `sharp` — PNGs brutos de `src/assets/images/` (~17MB) reduzidos em ~66% no `dist/` final, sem alterar os arquivos-fonte.
+- **Único item pendente:** BD-05 (newsletter do Blog sem backend — falta decidir entre EmailJS ou Mailchimp/Brevo).
+- **Ação separada, fora do escopo de código:** BQ-03/HC-02 tem o código do EmailJS pronto, mas os placeholders `SEU_SERVICE_ID` / `SEU_TEMPLATE_ID` / `SUA_PUBLIC_KEY` em `Contact.jsx` ainda aguardam as credenciais reais da conta da Ellen — sem isso, o formulário de contato não envia e-mails de verdade em produção.
 
 Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído
 

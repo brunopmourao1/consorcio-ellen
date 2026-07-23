@@ -7,13 +7,6 @@
 }
 
 /* CONTAINER PADRÃO */
-.hero-container-standard {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 32px;
-  width: 100%;
-}
-
 .container-7xl {
   max-width: 1280px;
   margin: 0 auto;
@@ -288,6 +281,7 @@
 /* 5. EDITORIAL PENSAMENTO PREVIEW */
 .editorial-thought-preview {
   padding: 120px 0;
+  background-color: var(--color-background);
 }
 
 .editorial-header {
