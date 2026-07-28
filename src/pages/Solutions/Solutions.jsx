@@ -5,6 +5,8 @@ import SEO from '../../components/ui/SEO';
 import realEstateImg from '../../assets/images/real-estate.png';
 import fleetImg from '../../assets/images/trator.png';
 import fleetImg2 from '../../assets/images/Aeronave.png';
+import fleetImg3 from '../../assets/images/trator-2.jpg';
+import fleetImg4 from '../../assets/images/avião agricula.png';
 import carImg from '../../assets/images/carro.png';
 import wealthImg from '../../assets/images/xadrez.png';
 import './Solutions.css';
@@ -105,7 +107,9 @@ const Solutions = () => {
                   </div>
                   <div className="item-footer-dual-image">
                     <img src={fleetImg} alt="Frota" />
-                    <img src={fleetImg2} alt="Agronegócio" />
+                    <img src={fleetImg2} alt="Aeronáutico" />
+                    <img src={fleetImg3} alt="Maquinário agrícola" />
+                    <img src={fleetImg4} alt="Agronegócio" />
                   </div>
                 </div>
               </FadeIn>
