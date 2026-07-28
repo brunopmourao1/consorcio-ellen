@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
+import SEO from '../../components/ui/SEO';
 import { sanityClient, urlFor } from '../../lib/sanityClient';
 import './Blog.css';
+
+const BLOG_SEO = {
+  title: 'Blog',
+  description: 'Análises e perspectivas sobre o mercado de consórcios, estratégias de alavancagem e macroeconomia para o investidor do Consórcio Ellen.',
+  path: '/blog',
+};
 
 const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc){
   _id,
@@ -26,6 +33,7 @@ const Blog = () => {
   if (posts === null) {
     return (
       <div className="blog-page">
+        <SEO {...BLOG_SEO} />
         <main className="container blog-main-content">
           <p className="blog-summary">Carregando artigos…</p>
         </main>
@@ -36,6 +44,7 @@ const Blog = () => {
   if (posts.length === 0) {
     return (
       <div className="blog-page">
+        <SEO {...BLOG_SEO} />
         <main className="container blog-main-content">
           <header className="blog-section-header">
             <h1 className="blog-headline">Pensamento <span className="serif-italic">Editorial</span></h1>
@@ -51,6 +60,7 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
+      <SEO {...BLOG_SEO} />
       <main className="container blog-main-content">
 
         {/* Section Header */}

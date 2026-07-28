@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
+import SEO from '../../components/ui/SEO';
 import ellenImg from '../../assets/images/Ellen-3.png';
 import './Specialist.css';
 
 const Specialist = () => {
   return (
     <div className="specialist-page">
+      <SEO
+        title="A Especialista"
+        description="Conheça Ellen Stevão, formada pelo Insper, certificada pela ABAC e autorizada pelo Banco Central, com mais de 14 anos de experiência em consultoria de consórcios."
+        path="/especialista"
+      />
       <main className="specialist-main">
         {/* Hero Section: Editorial Intro */}
         <section className="specialist-hero">

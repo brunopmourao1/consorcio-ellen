@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { PortableText } from '@portabletext/react';
 import FadeIn from '../../components/ui/FadeIn';
+import SEO from '../../components/ui/SEO';
 import { sanityClient, urlFor } from '../../lib/sanityClient';
 import './BlogPost.css';
 
@@ -74,6 +75,12 @@ const BlogPost = () => {
 
   return (
     <div className="blog-post-page">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${slug}`}
+        image={urlFor(post.mainImage).width(1200).height(630).url()}
+      />
       <main className="container blog-post-main">
         <FadeIn direction="up">
           <Link to="/blog" className="blog-post-back-link">← Voltar ao Blog</Link>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
 import ServiceCard from '../../components/ui/ServiceCard';
+import SEO from '../../components/ui/SEO';
 import { sanityClient, urlFor } from '../../lib/sanityClient';
 import ellenHero from '../../assets/images/Ellen-1.png';
 import ellenPreview from '../../assets/images/Ellen-2.png';
@@ -52,6 +53,11 @@ const Home = () => {
 
   return (
     <div className="home-page-v6">
+      <SEO
+        title="Consultoria Estratégica em Consórcios"
+        description="Consultoria estratégica em consórcios para quem busca investir com inteligência e segurança. Gestão financeira independente pelo Insper."
+        path="/"
+      />
       <main>
 
         {/* 1. HERO SECTION: Reconstrução Limpa Lado-a-Lado */}

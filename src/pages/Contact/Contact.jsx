@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import FadeIn from '../../components/ui/FadeIn';
+import SEO from '../../components/ui/SEO';
 import officeImg from '../../assets/images/wealth.png';
 import './Contact.css';
 
@@ -74,6 +75,11 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contato"
+        description="Solicite uma análise de viabilidade personalizada com o Consórcio Ellen. Atendimento consultivo para estruturação patrimonial via consórcio."
+        path="/contato"
+      />
       <main className="container contact-main-layout">
         <div className="contact-editorial-grid">
 

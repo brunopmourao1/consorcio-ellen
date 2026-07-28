@@ -1,10 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
+import SEO from '../../components/ui/SEO';
 import './Legal.css';
 
 const Legal = () => {
+  const { pathname } = useLocation();
+  const isPrivacidade = pathname === '/privacidade';
+
   return (
     <div className="legal-page">
+      <SEO
+        title={isPrivacidade ? 'Política de Privacidade' : 'Termos de Uso'}
+        description="Termos de uso e política de privacidade do Consórcio Ellen, com as diretrizes de transparência e segurança jurídica para clientes e parceiros."
+        path={pathname}
+      />
       <div className="legal-container">
         <FadeIn direction="up">
           <header className="legal-header">

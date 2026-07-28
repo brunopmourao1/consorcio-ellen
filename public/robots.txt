@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://consorcio-ellen.vercel.app/sitemap.xml

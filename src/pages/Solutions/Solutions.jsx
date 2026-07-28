@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
+import SEO from '../../components/ui/SEO';
 import realEstateImg from '../../assets/images/real-estate.png';
 import fleetImg from '../../assets/images/trator.png';
 import fleetImg2 from '../../assets/images/Aeronave.png';
@@ -11,6 +12,11 @@ import './Solutions.css';
 const Solutions = () => {
   return (
     <div className="solutions-page">
+      <SEO
+        title="Soluções Estratégicas"
+        description="Soluções em consórcio para imóveis, veículos, frotas, agronegócio e estruturação de ativos. Estratégias sob medida para cada perfil de investidor."
+        path="/solucoes"
+      />
       <main className="solutions-main-content">
 
         {/* 1. HERO SECTION */}
