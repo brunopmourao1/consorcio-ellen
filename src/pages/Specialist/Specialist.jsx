@@ -73,16 +73,16 @@ const Specialist = () => {
                   <h2 className="bio-headline">Uma trajetória construída com <br />estratégia e confiança.</h2>
                   <div className="bio-copy">
                     <p>
-                      Há mais de 14 anos no mercado financeiro, Ellen Stevão atua desenvolvendo soluções estratégicas para pessoas e empresas que desejam construir patrimônio de forma planejada e inteligente.
+                      Há mais de 14 anos no mercado financeiro, <strong>Ellen Stevão</strong> atua desenvolvendo soluções estratégicas para pessoas e empresas que desejam construir patrimônio de forma <strong>planejada e inteligente.</strong>
                     </p>
                     <p>
-                      Especialista em soluções financeiras e desenvolvimento de negócios, encontrou no consórcio uma ferramenta capaz de unir planejamento, organização financeira e crescimento patrimonial. Sua formação em Gestão Financeira Empresarial pelo Insper fortaleceu sua atuação consultiva, agregando uma visão ainda mais estratégica sobre planejamento e tomada de decisão.
+                      Especialista em soluções financeiras e desenvolvimento de negócios, encontrou no consórcio uma ferramenta capaz de unir planejamento, organização financeira e crescimento patrimonial. Sua formação em <strong>Gestão Financeira Empresarial pelo Insper</strong> fortaleceu sua atuação consultiva, agregando uma visão ainda mais estratégica sobre planejamento e tomada de decisão.
                     </p>
                     <p>
                       Hoje, à frente da Consórcio Ellen, atua com atendimento personalizado e consultivo, oferecendo soluções estruturadas para aquisição de bens, expansão patrimonial e planejamento financeiro.
                     </p>
                     <p>
-                      Certificada pela ABAC e FEBRABAN, trabalha em parceria com administradoras autorizadas e fiscalizadas pelo Banco Central do Brasil, garantindo segurança, transparência e credibilidade em cada projeto.
+                      Certificada pela <strong>ABAC e FEBRABAN</strong>, trabalha em parceria com administradoras autorizadas e fiscalizadas pelo <strong>Banco Central do Brasil</strong>, garantindo segurança, transparência e credibilidade em cada projeto.
                     </p>
                   </div>
                 </FadeIn>
