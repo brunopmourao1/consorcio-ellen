@@ -58,6 +58,7 @@
 }
 
 .featured-card {
+  display: block;
   cursor: pointer;
 }
 

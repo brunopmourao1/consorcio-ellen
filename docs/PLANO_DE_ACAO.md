@@ -1,7 +1,7 @@
 # Plano de Ação — Consórcio Ellen
 **Projeto:** `ellen_app` — React + Vite  
 **Referência no servidor MCP:** Projeto ID `14988207328583115709`  
-**Última atualização:** 2026-07-23  
+**Última atualização:** 2026-07-28  
 
 ---
 
@@ -27,6 +27,13 @@
 - **Novo item concluído fora do plano original:** otimização de imagens no build via `vite-plugin-image-optimizer` + `sharp` — PNGs brutos de `src/assets/images/` (~17MB) reduzidos em ~66% no `dist/` final, sem alterar os arquivos-fonte.
 - **Único item pendente:** BD-05 (newsletter do Blog sem backend — falta decidir entre EmailJS ou Mailchimp/Brevo).
 - **Ação separada, fora do escopo de código:** BQ-03/HC-02 tem o código do EmailJS pronto, mas os placeholders `SEU_SERVICE_ID` / `SEU_TEMPLATE_ID` / `SUA_PUBLIC_KEY` em `Contact.jsx` ainda aguardam as credenciais reais da conta da Ellen — sem isso, o formulário de contato não envia e-mails de verdade em produção.
+
+**Resumo da atualização de 2026-07-28:**
+- **BQ-04 reaberto e resolvido de vez:** a decisão anterior (desativar os links por não ter páginas de artigo) foi revertida porque o blog passou a ser escrito por uma pessoa responsável via CMS (Sanity.io), o que exige uma página de post real. Ver seção "Integração com Sanity CMS" logo após a Parte 3 para detalhes técnicos e os passos manuais que ainda faltam (login no Sanity, deploy do Studio, liberar CORS).
+- `src/pages/Blog/Blog.jsx` deixou de ter os posts hardcoded — agora busca via GROQ no Sanity (`*[_type == "post"]`).
+- Nova página `src/pages/BlogPost/BlogPost.jsx` + rota `/blog/:slug` no `App.jsx`, renderizando o corpo do post (Portable Text) escrito no Studio.
+- Novo projeto irmão `C:\projetos\ellen-studio` — o Sanity Studio em si, não faz parte do build do site.
+- Os cards de "Pensamento Editorial" na Home (`Home.jsx`) **não foram alterados** — continuam com conteúdo estático e apontando só para `/blog` (fora do escopo pedido; podem ser migrados para Sanity depois se fizer sentido).
 
 Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído
 
@@ -79,14 +86,11 @@ Variáveis usadas mas ausentes de `tokens.css`:
 
 ---
 
-#### BQ-04 ⬜ Links do Blog apontam para rotas inexistentes
+#### BQ-04 ✅ Links do Blog apontam para rotas inexistentes
 **Prioridade:** Urgente  
-**Arquivos:** `src/pages/Blog/Blog.jsx:127`, `src/App.jsx`  
-**Impacto:** Clicar em "Ler Artigo" leva a página em branco (rota `/blog/:id` não existe).
+**Arquivos:** `src/pages/Blog/Blog.jsx`, `src/pages/BlogPost/BlogPost.jsx`, `src/App.jsx`
 
-**Opções de correção:**
-- **Opção A (simples):** Remover o `Link` e tornar o card não-clicável por ora
-- **Opção B (completo):** Criar componente `BlogPost` e adicionar rota `/blog/:id` no `App.jsx`
+**Resolvido via integração com Sanity.io (2026-07-28):** ver seção "Integração com Sanity CMS" abaixo. Rota `/blog/:slug` criada com componente `BlogPost`.
 
 ---
 
@@ -445,6 +449,31 @@ Links com área de toque insuficiente:
 
 ---
 
+## Integração com Sanity CMS (Blog)
+
+**Contexto:** o blog passou a ser escrito por uma pessoa responsável pelo site, não mais pelo dev. Decisão: usar Sanity.io como CMS headless, com o Studio (editor de conteúdo) rodando separado do site.
+
+**Projeto Sanity:** `projectId: k637t7ts`, `dataset: production` (criado direto em manage.sanity.io).
+
+### O que já está pronto no código
+- `C:\projetos\ellen-studio` — Sanity Studio novo (projeto irmão, fora da pasta `ellen`), com schema `post` (`title`, `slug`, `category`, `readTime`, `publishedAt`, `mainImage`, `excerpt`, `featured`, `body` em Portable Text). Dependências já instaladas (`npm install` rodado).
+- `src/lib/sanityClient.js` (no app `ellen`) — cliente `@sanity/client` (API CDN) + `urlFor` (`@sanity/image-url`). `projectId`/`dataset` estão hardcoded ali de propósito: não são segredos, ficam visíveis em qualquer request do navegador de qualquer forma.
+- `src/pages/Blog/Blog.jsx` — lista de posts busca via GROQ (`*[_type == "post"] | order(publishedAt desc)`), sem mais array hardcoded.
+- `src/pages/BlogPost/BlogPost.jsx` + rota `/blog/:slug` em `App.jsx` — página de post completo, renderiza `body` (Portable Text) via `@portabletext/react`.
+
+### O que ainda falta — ações manuais (exigem login/interação, não dá pra automatizar)
+1. **Login no Sanity:** dentro de `C:\projetos\ellen-studio`, rodar `npx sanity login` (abre o navegador para autenticar).
+2. **Testar o Studio localmente:** `npx sanity dev` (abre em `localhost:3333`) e cadastrar os primeiros posts.
+3. **Deploy do Studio:** `npx sanity deploy` — escolhe um hostname (ex: `consorcio-ellen` → fica em `consorcio-ellen.sanity.studio`). É ali que a pessoa responsável pelo blog vai logar para escrever os posts dali pra frente.
+4. **Liberar CORS** em manage.sanity.io → projeto → API → CORS Origins: adicionar `http://localhost:5173` (dev do site) e o domínio de produção (Vercel). Sem isso, o `fetch` do navegador no site é bloqueado mesmo com dataset público.
+5. **Convidar a pessoa que vai escrever** como membro do projeto Sanity (manage.sanity.io → Members), se for diferente de quem criou o projeto.
+
+### Fora do escopo desta integração
+- Os cards estáticos de "Pensamento Editorial" na Home (`Home.jsx`) continuam com conteúdo fixo — não foram migrados para o Sanity.
+- BD-05 (newsletter do Blog) é assunto separado, ainda pendente.
+
+---
+
 ## Ordem de Execução Sugerida
 
 ### Sprint 1 — Correções Urgentes (antes de qualquer publicação)
@@ -472,7 +501,7 @@ Links com área de toque insuficiente:
 ### Sprint 4 — Publicação e Pós-lançamento
 17. HC-01 — Configurar Vercel e repositório GitHub
 18. HC-02 — Confirmar funcionamento do EmailJS em produção
-19. BQ-04 — Decidir sobre rotas de artigos individuais no Blog
+19. ~~BQ-04 — Decidir sobre rotas de artigos individuais no Blog~~ (resolvido: integração com Sanity CMS, ver seção dedicada)
 20. BF-03 — Criar PDF do prospecto ou remover botão
 21. BD-06 — Criar favicon personalizado
 22. BD-05 — Decidir plataforma de newsletter (Mailchimp/Brevo)

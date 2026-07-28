@@ -6,6 +6,7 @@ import Home from './pages/Home/Home'
 import Specialist from './pages/Specialist/Specialist'
 import Solutions from './pages/Solutions/Solutions'
 import Blog from './pages/Blog/Blog'
+import BlogPost from './pages/BlogPost/BlogPost'
 import Contact from './pages/Contact/Contact'
 import Legal from './pages/Legal/Legal'
 import './styles/global.css'
@@ -24,6 +25,7 @@ function App() {
             <Route path="/especialista" element={<Specialist />} />
             <Route path="/solucoes" element={<Solutions />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/privacidade" element={<Legal />} />
             <Route path="/termos" element={<Legal />} />

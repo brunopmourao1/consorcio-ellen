@@ -1,0 +1,121 @@
+.blog-post-page {
+  padding-top: 90px;
+}
+
+.blog-post-main {
+  padding-top: 64px;
+  padding-bottom: 120px;
+  max-width: 800px;
+}
+
+.blog-post-back-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--color-on-primary-container);
+  margin-bottom: 32px;
+  transition: opacity 0.3s ease;
+}
+
+.blog-post-back-link:hover {
+  opacity: 0.7;
+}
+
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.blog-post-category {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-on-primary-container);
+}
+
+.blog-post-readtime {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.blog-post-title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  color: var(--color-primary-container);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.blog-post-excerpt {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+.blog-post-hero-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 48px;
+  background-color: var(--color-surface-container-low);
+}
+
+.blog-post-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-post-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+}
+
+.blog-post-body p {
+  margin-bottom: 24px;
+}
+
+.blog-post-body h2 {
+  font-size: 1.75rem;
+  margin: 48px 0 20px;
+}
+
+.blog-post-body h3 {
+  font-size: 1.375rem;
+  margin: 40px 0 16px;
+}
+
+.blog-post-body blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 24px;
+  margin: 32px 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+  margin: 0 0 24px 24px;
+}
+
+.post-body-image {
+  width: 100%;
+  margin: 32px 0;
+}
+
+.blog-post-not-found {
+  margin-bottom: 24px;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .blog-post-main {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+}
