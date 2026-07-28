@@ -70,16 +70,19 @@ const Specialist = () => {
             <div className="bio-asymmetric-grid">
               <div className="bio-narrative">
                 <FadeIn>
-                  <h2 className="bio-headline">Uma jornada moldada pela <br />precisão técnica.</h2>
+                  <h2 className="bio-headline">Uma trajetória construída com <br />estratégia e confiança.</h2>
                   <div className="bio-copy">
                     <p>
-                      Minha trajetória no mercado financeiro começou há mais de uma década, movida pelo desejo de desmistificar a gestão de ativos e oferecer às famílias brasileiras o mesmo nível de sofisticação encontrado em Family Offices internacionais.
+                      Há mais de 14 anos no mercado financeiro, Ellen Stevão atua desenvolvendo soluções estratégicas para pessoas e empresas que desejam construir patrimônio de forma planejada e inteligente.
                     </p>
                     <p>
-                      Graduada em Economia pelo <strong>Insper</strong>, consolidei minha base técnica atuando diretamente na estruturação de operações complexas de crédito e consórcios imobiliários de alto valor. Acredito que o patrimônio não é apenas um número, mas a materialização do esforço e da visão de uma vida inteira.
+                      Especialista em soluções financeiras e desenvolvimento de negócios, encontrou no consórcio uma ferramenta capaz de unir planejamento, organização financeira e crescimento patrimonial. Sua formação em Gestão Financeira Empresarial pelo Insper fortaleceu sua atuação consultiva, agregando uma visão ainda mais estratégica sobre planejamento e tomada de decisão.
                     </p>
                     <p>
-                      Hoje, como especialista autorizada pelo Banco Central e certificada pela ABAC, lidero o <strong>Consórcio Ellen</strong>, focado em soluções inteligentes de alavancagem patrimonial e blindagem financeira.
+                      Hoje, à frente da Consórcio Ellen, atua com atendimento personalizado e consultivo, oferecendo soluções estruturadas para aquisição de bens, expansão patrimonial e planejamento financeiro.
+                    </p>
+                    <p>
+                      Certificada pela ABAC e FEBRABAN, trabalha em parceria com administradoras autorizadas e fiscalizadas pelo Banco Central do Brasil, garantindo segurança, transparência e credibilidade em cada projeto.
                     </p>
                   </div>
                 </FadeIn>
