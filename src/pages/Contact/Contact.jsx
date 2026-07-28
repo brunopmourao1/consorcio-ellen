@@ -12,9 +12,9 @@ import './Contact.css';
 // 4. Copie sua Public Key em Account > API Keys
 // 5. Substitua os três valores abaixo pelas suas credenciais reais
 // ─────────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = 'SEU_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'SEU_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY  = 'SUA_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID  = 'service_hk27tzn';
+const EMAILJS_TEMPLATE_ID = 'template_wnv5e3s';
+const EMAILJS_PUBLIC_KEY  = 'ucy3NWA2bcFdSfOgz';
 
 // Variáveis esperadas no template do EmailJS:
 // {{from_name}}  → Nome do contato
