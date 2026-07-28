@@ -1,16 +1,41 @@
-# React + Vite
+# Consórcio Ellen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site institucional de consultoria estratégica em consórcios para Ellen Stevão. React 19 + Vite 8, com blog gerenciado via Sanity CMS.
 
-Currently, two official plugins are available:
+**Produção:** https://consorcio-ellen.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 + Vite 8 + React Router DOM 7
+- Blog via [Sanity CMS](https://sanity.io) (headless) — projeto irmão em `../ellen-studio`
+- Formulário de contato via [EmailJS](https://emailjs.com)
+- SEO por página via `react-helmet-async`
+- Deploy automático na [Vercel](https://vercel.com) a cada `git push` em `main`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Documentação completa em [`docs/`](docs/):
+- [`docs/PRD.md`](docs/PRD.md) — visão de produto e requisitos
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — arquitetura técnica e estrutura de pastas
+- [`docs/STYLE_GUIDE.md`](docs/STYLE_GUIDE.md) — design tokens e convenções visuais
+- [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) — infraestrutura, custos e fluxo de deploy
+- [`docs/PLANO_DE_ACAO.md`](docs/PLANO_DE_ACAO.md) — histórico de bugs, ajustes e pendências
 
-## Expanding the ESLint configuration
+## Rodando localmente
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # build de produção em dist/
+npm run preview   # serve o build de produção localmente
+```
+
+## Blog (Sanity CMS)
+
+O conteúdo do blog é editado em um Studio separado, não neste repositório:
+
+```bash
+cd ../ellen-studio
+npx sanity dev     # Studio local em http://localhost:3333
+npx sanity deploy  # publica em consorcio-ellen.sanity.studio
+```
+
+Só posts com status **Publish** (não rascunho) aparecem no site.

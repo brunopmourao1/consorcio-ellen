@@ -16,6 +16,8 @@
 | Hospedagem & Contato | 2 | 2 | 0 |
 | **Total** | **26** | **25** | **1** |
 
+**Único item pendente do plano original: BD-05 (newsletter do Blog sem backend).** Tudo o mais está concluído, incluindo itens que surgiram fora do escopo original (Sanity CMS, SEO, correções de layout) — ver resumo de 2026-07-28 (parte 2) logo abaixo.
+
 **Resumo da atualização de 2026-07-23:**
 - Site já está publicado e no ar na Vercel (HC-01 concluído — confirmado pelo usuário; os commits de fix de case-sensitivity de imagens são evidência do pipeline de build Linux da Vercel).
 - BR-05 e BR-08, marcados como pendentes na última revisão do documento, na verdade já estavam implementados no código (mismatch entre doc e código — corrigido aqui).
@@ -28,12 +30,20 @@
 - **Único item pendente:** BD-05 (newsletter do Blog sem backend — falta decidir entre EmailJS ou Mailchimp/Brevo).
 - **Ação separada, fora do escopo de código:** BQ-03/HC-02 tem o código do EmailJS pronto, mas os placeholders `SEU_SERVICE_ID` / `SEU_TEMPLATE_ID` / `SUA_PUBLIC_KEY` em `Contact.jsx` ainda aguardam as credenciais reais da conta da Ellen — sem isso, o formulário de contato não envia e-mails de verdade em produção.
 
-**Resumo da atualização de 2026-07-28:**
-- **BQ-04 reaberto e resolvido de vez:** a decisão anterior (desativar os links por não ter páginas de artigo) foi revertida porque o blog passou a ser escrito por uma pessoa responsável via CMS (Sanity.io), o que exige uma página de post real. Ver seção "Integração com Sanity CMS" logo após a Parte 3 para detalhes técnicos e os passos manuais que ainda faltam (login no Sanity, deploy do Studio, liberar CORS).
+**Resumo da atualização de 2026-07-28 (parte 1 — Sanity CMS):**
+- **BQ-04 reaberto e resolvido de vez:** a decisão anterior (desativar os links por não ter páginas de artigo) foi revertida porque o blog passou a ser escrito por uma pessoa responsável via CMS (Sanity.io), o que exige uma página de post real. Ver seção "Integração com Sanity CMS" logo após a Parte 3 para detalhes técnicos.
 - `src/pages/Blog/Blog.jsx` deixou de ter os posts hardcoded — agora busca via GROQ no Sanity (`*[_type == "post"]`).
 - Nova página `src/pages/BlogPost/BlogPost.jsx` + rota `/blog/:slug` no `App.jsx`, renderizando o corpo do post (Portable Text) escrito no Studio.
-- Novo projeto irmão `C:\projetos\ellen-studio` — o Sanity Studio em si, não faz parte do build do site.
-- Os cards de "Pensamento Editorial" na Home (`Home.jsx`) **não foram alterados** — continuam com conteúdo estático e apontando só para `/blog` (fora do escopo pedido; podem ser migrados para Sanity depois se fizer sentido).
+- Novo projeto irmão `C:\projetos\ellen-studio` — o Sanity Studio em si, não faz parte do build do site. Publicado em `https://consorcio-ellen.sanity.studio`, repositório próprio `brunopmourao1/ellen-studio` no GitHub.
+
+**Resumo da atualização de 2026-07-28 (parte 2 — dinâmico, fixes, SEO, EmailJS):**
+- **Home totalmente dinâmica também:** a seção "Pensamento Editorial" (`Home.jsx`) e a caixa "Tópicos Recentes" do Blog (`Blog.jsx`) deixaram de ter conteúdo fixo — ambas agora puxam os posts reais mais recentes do Sanity. Não sobrou mais nenhum conteúdo de blog hardcoded no site.
+- **Fix crítico pós-lançamento do Sanity:** F5/acesso direto a `/blog` ou `/blog/:slug` em produção retornava 404 — adicionado `vercel.json` com rewrite catch-all pra SPA.
+- **BQ-03/HC-02 concluído de vez:** credenciais reais do EmailJS configuradas em `Contact.jsx` (conta conectada a `ellenstevao@icloud.com`), testado e confirmado em produção. Template de e-mail personalizado (HTML com tabelas + CSS inline, sem depender de Tailwind CDN/JS que não funcionam em clientes de e-mail).
+- **BD-05 (newsletter) permanece o único item pendente** — decisão consciente do usuário de resolver só o Contato por enquanto.
+- **Fixes de layout**: altura desigual dos cards "Estratégia 01/02" em Solutions (`height: 100%` faltando), largura desigual dos cards "Patrimônio Consciente"/"Rigor Técnico" em Specialist (margin-left negativo removido), centralização da imagem do hero em Solutions, 2 imagens adicionadas ao card "Estratégia 02" (antes só tinha 2, sobrava espaço vazio).
+- **SEO implementado:** title/description/Open Graph únicos por página via `react-helmet-async`, `sitemap.xml` + `robots.txt`, imagem de compartilhamento (`public/og-image.png`). Pendente: cadastro no Google Search Console (usuário decidiu esperar definir o domínio `.com.br` final antes).
+- **Domínio próprio (`.com.br`) ainda não registrado** — pesquisado registro via Registro.br (Vercel só vende `.com`) e avaliada/descartada migração para hospedagem Locaweb (manteria a Vercel pela praticidade do deploy automático).
 
 Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído
 
@@ -469,8 +479,9 @@ Links com área de toque insuficiente:
 5. **Convidar a pessoa que vai escrever** como membro do projeto Sanity (manage.sanity.io → Members), se for diferente de quem criou o projeto.
 
 ### Fora do escopo desta integração
-- Os cards estáticos de "Pensamento Editorial" na Home (`Home.jsx`) continuam com conteúdo fixo — não foram migrados para o Sanity.
 - BD-05 (newsletter do Blog) é assunto separado, ainda pendente.
+
+> Atualização: os cards de "Pensamento Editorial" na Home **foram migrados para o Sanity** numa sessão posterior (ver resumo de 2026-07-28 parte 2) — já não são mais conteúdo fixo.
 
 ---
 
@@ -521,6 +532,10 @@ Estas customizações foram feitas no projeto local e **não existem nas telas d
 | `tokens.css` | Sistema de design tokens centralizado |
 | Rotas `/privacidade` e `/termos` separadas | O MCP tem uma única tela Legal |
 | `Legal.jsx` | Página completa implementada |
+| Integração com Sanity CMS (Blog) | Todo o fluxo de posts dinâmicos (`sanityClient.js`, `/blog/:slug`, Studio em `ellen-studio`) |
+| `SEO.jsx` + `react-helmet-async` | Title/description/Open Graph por página, sitemap.xml, robots.txt |
+| EmailJS real no `Contact.jsx` | Credenciais de produção configuradas e testadas |
+| `vercel.json` | Rewrite catch-all necessário pro roteamento SPA funcionar |
 
 ---
 
@@ -528,16 +543,16 @@ Estas customizações foram feitas no projeto local e **não existem nas telas d
 
 | Tela MCP | Página React | Status |
 |---|---|---|
-| Home - Boutique Financeira (Desktop) | `/` — `Home.jsx` | Implementado |
-| Home - Mobile | `/` — `Home.jsx` | Parcial (ver BR-01, BR-02) |
+| Home - Boutique Financeira (Desktop) | `/` — `Home.jsx` | Implementado (Blog dinâmico via Sanity) |
+| Home - Mobile | `/` — `Home.jsx` | Bom (BR-01, BR-02 resolvidos) |
 | A Especialista - Perfil Técnico (Desktop) | `/especialista` — `Specialist.jsx` | Implementado |
-| A Especialista - Mobile | `/especialista` — `Specialist.jsx` | Parcial |
+| A Especialista - Mobile | `/especialista` — `Specialist.jsx` | Bom |
 | Soluções - Gestão de Ativos (Desktop) | `/solucoes` — `Solutions.jsx` | Implementado |
-| Soluções - Mobile | `/solucoes` — `Solutions.jsx` | Parcial |
-| Blog - Pensamento Editorial (Desktop) | `/blog` — `Blog.jsx` | Implementado |
-| Blog - Mobile | `/blog` — `Blog.jsx` | Parcial |
+| Soluções - Mobile | `/solucoes` — `Solutions.jsx` | Bom |
+| Blog - Pensamento Editorial (Desktop) | `/blog` — `Blog.jsx` | Implementado (posts via Sanity CMS) |
+| Blog - Mobile | `/blog` — `Blog.jsx` | Bom |
 | Termos e Privacidade (Desktop) | `/termos` e `/privacidade` — `Legal.jsx` | Implementado |
 | Termos e Privacidade - Mobile | idem | Bom |
-| Contato - Estudo de Viabilidade (Desktop) | `/contato` — `Contact.jsx` | Implementado (sem envio real) |
-| Contato - Mobile | `/contato` — `Contact.jsx` | Parcial |
+| Contato - Estudo de Viabilidade (Desktop) | `/contato` — `Contact.jsx` | Implementado (envio real via EmailJS) |
+| Contato - Mobile | `/contato` — `Contact.jsx` | Bom |
 | PRD: Consórcio Ellen | `docs/PRD.md` | Referência apenas |
