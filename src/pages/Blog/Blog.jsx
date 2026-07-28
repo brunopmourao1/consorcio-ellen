@@ -90,18 +90,14 @@ const Blog = () => {
               <div className="aside-box">
                 <h3 className="aside-title">Tópicos Recentes</h3>
                 <ul className="aside-list">
-                  <li className="aside-item">
-                    <span className="item-tag">Imobiliário</span>
-                    <h4>Yield vs. Valorização: O dilema de 2026.</h4>
-                  </li>
-                  <li className="aside-item">
-                    <span className="item-tag">Sucessão</span>
-                    <h4>Holding vs. Doação: Protegendo legados.</h4>
-                  </li>
-                  <li className="aside-item">
-                    <span className="item-tag">Global</span>
-                    <h4>Impacto do Selic nas taxas de consórcio atuais.</h4>
-                  </li>
+                  {posts.slice(0, 3).map((post) => (
+                    <li className="aside-item" key={post._id}>
+                      <Link to={`/blog/${post.slug}`}>
+                        <span className="item-tag">{post.category}</span>
+                        <h4>{post.title}</h4>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
 
                 <div className="quote-box">

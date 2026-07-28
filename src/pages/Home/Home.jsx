@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../../components/ui/FadeIn';
 import ServiceCard from '../../components/ui/ServiceCard';
+import { sanityClient, urlFor } from '../../lib/sanityClient';
 import ellenHero from '../../assets/images/Ellen-1.png';
 import ellenPreview from '../../assets/images/Ellen-2.png';
-import blogImg1 from '../../assets/images/blog-1.png';
-import blogImg2 from '../../assets/images/blog-2.png';
-import blogImg3 from '../../assets/images/blog-3.png';
 import './Home.css';
 
+const RECENT_POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc)[0...3]{
+  _id,
+  title,
+  "slug": slug.current,
+  category,
+  excerpt,
+  mainImage
+}`;
+
 const Home = () => {
+  const [recentPosts, setRecentPosts] = useState([]);
+
+  useEffect(() => {
+    sanityClient.fetch(RECENT_POSTS_QUERY).then(setRecentPosts).catch(() => setRecentPosts([]));
+  }, []);
+
   const solutions = [
     {
       title: 'Imobiliário',
@@ -158,40 +171,22 @@ const Home = () => {
               <Link to="/blog" className="editorial-link-alt md-only">Ver Blog Completo</Link>
             </div>
 
-            <div className="home-editorial-grid">
-              <article className="editorial-card-item">
-                <div className="card-media">
-                  <img src={blogImg1} alt="Selic" className="editorial-img" />
-                </div>
-                <span className="item-tag-v5">Mercado</span>
-                <div className="item-title-link">
-                  <h3>O impacto da Selic no custo de oportunidade do consórcio</h3>
-                </div>
-                <p className="item-excerpt">Uma análise técnica sobre como os juros influenciam a decisão de investir através de grupos de consórcio...</p>
-              </article>
-
-              <article className="editorial-card-item">
-                <div className="card-media">
-                  <img src={blogImg2} alt="Lances" className="editorial-img" />
-                </div>
-                <span className="item-tag-v5">Estratégia</span>
-                <div className="item-title-link">
-                  <h3>Lance Livre vs. Lance Fixo: Qual o melhor caminho?</h3>
-                </div>
-                <p className="item-excerpt">Entenda a matemática por trás das modalidades de lance e como acelerar sua contemplação com segurança.</p>
-              </article>
-
-              <article className="editorial-card-item">
-                <div className="card-media">
-                  <img src={blogImg3} alt="Sucessão" className="editorial-img" />
-                </div>
-                <span className="item-tag-v5">Patrimônio</span>
-                <div className="item-title-link">
-                  <h3>Consórcio como ferramenta de sucessão familiar</h3>
-                </div>
-                <p className="item-excerpt">Descubra como estruturar a transferência de ativos de forma inteligente utilizando as cotas de consórcio imobiliário.</p>
-              </article>
-            </div>
+            {recentPosts.length > 0 && (
+              <div className="home-editorial-grid">
+                {recentPosts.map((post) => (
+                  <Link to={`/blog/${post.slug}`} className="editorial-card-item" key={post._id}>
+                    <div className="card-media">
+                      <img src={urlFor(post.mainImage).width(600).url()} alt={post.title} className="editorial-img" />
+                    </div>
+                    <span className="item-tag-v5">{post.category}</span>
+                    <div className="item-title-link">
+                      <h3>{post.title}</h3>
+                    </div>
+                    <p className="item-excerpt">{post.excerpt}</p>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
