@@ -162,7 +162,6 @@
   background-color: var(--color-surface-container-highest);
   color: var(--color-primary-container);
   margin-top: 32px;
-  margin-left: -48px; /* Intentional Asymmetry */
 }
 
 .manifesto-card .icon {
