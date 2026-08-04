@@ -1,7 +1,7 @@
 # Plano de Ação — Consórcio Ellen
 **Projeto:** `ellen_app` — React + Vite  
 **Referência no servidor MCP:** Projeto ID `14988207328583115709`  
-**Última atualização:** 2026-07-28  
+**Última atualização:** 2026-08-04  
 
 ---
 
@@ -44,6 +44,15 @@
 - **Fixes de layout**: altura desigual dos cards "Estratégia 01/02" em Solutions (`height: 100%` faltando), largura desigual dos cards "Patrimônio Consciente"/"Rigor Técnico" em Specialist (margin-left negativo removido), centralização da imagem do hero em Solutions, 2 imagens adicionadas ao card "Estratégia 02" (antes só tinha 2, sobrava espaço vazio).
 - **SEO implementado:** title/description/Open Graph únicos por página via `react-helmet-async`, `sitemap.xml` + `robots.txt`, imagem de compartilhamento (`public/og-image.png`). Pendente: cadastro no Google Search Console (usuário decidiu esperar definir o domínio `.com.br` final antes).
 - **Domínio próprio (`.com.br`) ainda não registrado** — pesquisado registro via Registro.br (Vercel só vende `.com`) e avaliada/descartada migração para hospedagem Locaweb (manteria a Vercel pela praticidade do deploy automático).
+
+**Resumo da atualização de 2026-08-04 (domínio próprio configurado):**
+- **Domínio `consorcioellen.com.br` registrado no Registro.br** em nome de Elen Sulamita dos Santos (titular `MasterCon consorcioellen`, CNPJ `50.595.173/0001-78`), expiração em 29/07/2028.
+- `consorcioellen.com.br` e `www.consorcioellen.com.br` adicionados ao projeto `consorsio-ellen` na Vercel — `www` configurado como domínio de produção, e o domínio raiz com redirect 308 para `www`.
+- Zona DNS do Registro.br configurada em modo avançado com os registros apontando para a Vercel:
+  - `A` `consorcioellen.com.br` → `216.198.79.1`
+  - `CNAME` `www.consorcioellen.com.br` → `34d9368a704050ca.vercel-dns-017.com.`
+- **DNS propagado e HTTPS ativo (confirmado 2026-08-04):** `https://www.consorcioellen.com.br` responde 200 com certificado SSL válido; `https://consorcioellen.com.br` responde 308 redirecionando corretamente para `www`. Domínio próprio 100% funcional em produção.
+- **Próximo passo, agora desbloqueado:** cadastro do domínio no Google Search Console (estava esperando o domínio final ser definido).
 
 Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído
 

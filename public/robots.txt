@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://consorcio-ellen.vercel.app/sitemap.xml
+Sitemap: https://www.consorcioellen.com.br/sitemap.xml

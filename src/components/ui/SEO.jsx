@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE_NAME = 'Consórcio Ellen';
-const SITE_URL = 'https://consorcio-ellen.vercel.app';
+const SITE_URL = 'https://www.consorcioellen.com.br';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
 const SEO = ({ title, description, path = '', image = DEFAULT_IMAGE }) => {
