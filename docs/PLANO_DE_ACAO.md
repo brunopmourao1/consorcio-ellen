@@ -52,7 +52,9 @@
   - `A` `consorcioellen.com.br` → `216.198.79.1`
   - `CNAME` `www.consorcioellen.com.br` → `34d9368a704050ca.vercel-dns-017.com.`
 - **DNS propagado e HTTPS ativo (confirmado 2026-08-04):** `https://www.consorcioellen.com.br` responde 200 com certificado SSL válido; `https://consorcioellen.com.br` responde 308 redirecionando corretamente para `www`. Domínio próprio 100% funcional em produção.
-- **Próximo passo, agora desbloqueado:** cadastro do domínio no Google Search Console (estava esperando o domínio final ser definido).
+- **Google Search Console cadastrado (2026-08-04):** propriedade de domínio `consorcioellen.com.br` criada e verificada automaticamente via registro TXT no Registro.br (`google-site-verification=...`), cobrindo `www` e a raiz.
+  - **Bug encontrado e corrigido:** `sitemap.xml`, `robots.txt`, `SEO.jsx` (canonical/OG) e `index.html` (OG/Twitter estático) ainda apontavam para o domínio antigo `consorcio-ellen.vercel.app` — o Search Console rejeitava o sitemap por isso ("URL não permitido"). Corrigido para `https://www.consorcioellen.com.br`, commitado e publicado (commit `7e4f8b0`).
+  - Sitemap reenviado e processado com sucesso: 7 páginas encontradas, 0 erros.
 
 Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído
 
